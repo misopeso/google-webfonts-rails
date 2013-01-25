@@ -1,6 +1,12 @@
-# GoogleWebfonts
+# GoogleWebfonts for Rails
 
-TODO: Write a gem description
+A easiest way to introduce Google WebFonts to Rails application.
+
+[![Gem Version](https://badge.fury.io/rb/google-webfonts-rails.png)](http://badge.fury.io/rb/google-webfonts-rails)
+
+We provide an easy to use Google WebFonts Loader. See below about WebFonts Loader.
+
+<https://developers.google.com/webfonts/docs/webfont_loader>
 
 ## Installation
 
@@ -18,7 +24,67 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Syntax
+
+Add following code to your layout file in the `<head>` tag
+
+    google_webfonts_init(config hash)
+
+### Configuration
+
+Google WebFonts:
+
+    {
+      google: ['Nunito', 'Oxygen']
+    }
+
+Adobe Typekit:
+
+    {
+      typekit: 'adobe'
+    }
+
+Ascender:
+
+    {
+      ascender: {
+        testKey: ['AscenderSan:bold', 'Calibri']
+      }
+    }
+
+fonts.com:
+
+    {
+      monotype: 'test'
+    }
+
+Fontdeck:
+
+    {
+      fontdeck: "xxxxx"
+    }
+
+Custom:
+
+    {
+      custom: {
+        'OneFontFamily', 'http://example.com/stylesheet1.css',
+        'AnotherFontFamily', 'http://example.com/stylesheet2.css'
+      }
+    }
+
+The above configuration can be included at the same time.
+
+Example:
+
+    {
+      google: ['Nunito', 'Oxygen'],
+      monotype: 'test',
+      custom: {
+        'OneFontFamily', 'http://example.com/stylesheet1.css',
+        'AnotherFontFamily', 'http://example.com/stylesheet2.css'
+      }
+    }
 
 ## Contributing
 

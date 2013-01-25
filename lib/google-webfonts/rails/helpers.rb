@@ -10,28 +10,34 @@ module GoogleWebfonts
       # Initialize WebFont Loader javascript. Put it in the head elements.
       #
       # @param config [Hash]
-      # 
+      #
       #
       def google_webfonts_init(config = {})
-        google_families = config.delete(:google)
-        google_families = [google_families] unless google_families.is_a?(Array)
+        renderer = GoogleWebfonts::ConfigRenderer.new
 
-        print(google_families).html_safe
+        renderer.google= config.delete(:google)
+        renderer.typekit= config.delete(:typekit)
+        renderer.ascender= config.delete(:ascender)
+        renderer.monotype= config.delete(:monotype)
+        renderer.fontdeck= config.delete(:fontdeck)
+        renderer.custom= config.delete(:custom)
+
+        specific_version = config.delete(:version) || "1"
+
+        construct(renderer, specific_version)
       end
 
       private
 
-      def print(google)
+      def construct(renderer, version)
         <<-JAVASCRIPT
 <script type="text/javascript">
-  WebFontConfig = {
-    #{print_google(google)}
-  };
+#{renderer.render}
 
   (function() {
     var wf = document.createElement('script');
     wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      '#{loader_url(version)}';
     wf.type = 'text/javascript';
     wf.async = 'true';
     var s = document.getElementsByTagName('script')[0];
@@ -39,6 +45,10 @@ module GoogleWebfonts
   })();
 </script>
         JAVASCRIPT
+      end
+
+      def loader_url(version)
+        "://ajax.googleapis.com/ajax/libs/webfont/#{version}/webfont.js"
       end
 
       def print_google(config)

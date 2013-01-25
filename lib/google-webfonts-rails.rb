@@ -1,5 +1,5 @@
 module GoogleWebfonts
-
+  require 'google-webfonts/config_renderer'
 end
 
 if defined?(Rails)

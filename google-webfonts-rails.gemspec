@@ -8,11 +8,14 @@ Gem::Specification.new do |gem|
   gem.version       = GoogleWebfonts::VERSION
   gem.authors       = ["URAMOTO Kazunori"]
   gem.email         = ["kuprij@mac.com"]
-  gem.description   = %q{Rails 3 helpers to use google webfonts}
-  gem.summary       = %q{Rails 3 helpers to use google webfonts}
-  gem.homepage      = ""
+  gem.description   = %q{A easiest way to introduce Google WebFonts to Rails application.}
+  gem.summary       = %q{A easiest way to introduce Google WebFonts to Rails application.}
+  gem.homepage      = "https://github.com/misopeso/google-webfonts-rails"
 
-  gem.add_development_dependency 'rspec', '~> 2.8.0'
+  gem.add_runtime_dependency 'activesupport', '~> 3.2.0'
+
+  gem.add_development_dependency 'rake'
+  gem.add_development_dependency 'rspec', '~> 2.12.0'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
