@@ -24,7 +24,7 @@ module GoogleWebfonts
 
         specific_version = config.delete(:version) || "1"
 
-        construct(renderer, specific_version)
+        construct(renderer, specific_version).html_safe
       end
 
       private
@@ -49,18 +49,6 @@ module GoogleWebfonts
 
       def loader_url(version)
         "://ajax.googleapis.com/ajax/libs/webfont/#{version}/webfont.js"
-      end
-
-      def print_google(config)
-        return "" if config.nil?
-
-        families = config.map { |c| "'#{c}'" }.join(",")
-
-        <<-JAVASCRIPT
-    google: {
-      families: [#{families}]
-    },
-        JAVASCRIPT
       end
     end
   end
