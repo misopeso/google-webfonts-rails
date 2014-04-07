@@ -5,7 +5,7 @@ require 'google-webfonts/version'
 
 Gem::Specification.new do |gem|
   gem.name          = "google-webfonts-rails"
-  gem.version       = GoogleWebfonts::VERSION
+  gem.version       = GoogleWebfonts::Rails::Version::STRING
   gem.authors       = ["URAMOTO Kazunori"]
   gem.email         = ["kuprij@mac.com"]
   gem.description   = %q{A easiest way to introduce Google WebFonts to Rails application.}
