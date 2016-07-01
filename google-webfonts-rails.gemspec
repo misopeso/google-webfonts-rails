@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{A easiest way to introduce Google WebFonts to Rails application.}
   gem.homepage      = "https://github.com/misopeso/google-webfonts-rails"
 
-  gem.add_runtime_dependency 'activesupport', '> 3.2.0', '< 5.0'
+  gem.add_runtime_dependency 'activesupport', '> 3.2.0', '< 5.1'
 
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rspec', '~> 2.12.0'
