@@ -2,6 +2,7 @@ module GoogleWebfonts
   module Rails
     module Helpers
       extend ActiveSupport::Concern
+      include ActionController::Helpers
 
       included do
         helper_method :google_webfonts_init
